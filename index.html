@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <title lang="ja">読み込み中…</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+
+    <link rel="stylesheet" href="src/css/style.css">
+
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-animate/angular-animate.min.js"></script>
+    <script src="node_modules/angular-route/angular-route.min.js"></script>
+    <script src="node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="src/js/all.js"></script>
+</head>
+
+<body ng-controller="mainCtrl">
+    <header>
+        <h1><a href="#x/home" style="color:inherit">ここを変更</a></h1>
+        <nav>
+            <ul id="menu">
+                <li ng-repeat="i in menu" style="width:{{100/menu.length}}%"><a href="#x/{{i.u}}">{{i.t}}</a></li>
+            </ul>
+        </nav>
+    </header>
+    <article>
+        <p>Languages:<span class="langMenu" ng-repeat="i in lang">
+			<a ng-click="setLang(i.s)">{{i.c}}</a> </span>
+        </p>
+        <span class="float-right">
+			<a href="{{temp()}}" target="_blank">{{t("View_source")}}</a></span>
+        <ng-view markdown></ng-view>
+    </article>
+    <footer>
+        <p>
+            Copyright © 2014-{{year}}
+            <a href="//github.com/plageoj">plageoj</a>
+        </p>
+    </footer>
+    <script src="node_modules/zenscroll/zenscroll.js"></script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</body>
+
+</html>

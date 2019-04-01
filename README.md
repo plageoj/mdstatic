@@ -6,6 +6,7 @@ Build a simple and lightweight static website with markdown
 
 + Clone this repository
 + Change "`Your site name`" in `index.html` and `src/js/all.js`
++ Do `npm install`
 + Then open `index.html` in your browser, the page is ready!
 + Deploy to any hosting service or gh-pages
 

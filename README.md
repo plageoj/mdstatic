@@ -52,7 +52,3 @@ Top menu structure and language list is defined by `menu.json`. Here is a short 
     }
 }
 ```
-
-## To-Do
-
-+ Language switching feature is currently not working and must be fixed

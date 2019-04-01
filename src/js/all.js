@@ -1,6 +1,6 @@
 (function() {
     "use strict";
-    var pageTitle = 'タイトルをここに設定';
+    var pageTitle = 'Your site name';
     angular.module("app", ["ngRoute", "ngAnimate", "mdTOC"])
         .config(["$routeProvider", "$locationProvider", function(n, t) {
             n
@@ -31,11 +31,12 @@
                     try {
                         return (navigator.browserLanguage || navigator.language || navigator.userLanguage).substr(0, 2);
                     } catch (n) {
-                        return;
+                        return 'ja';
                     }
                 };
-                var r = localStorage.getItem("lang");
-                r || (r = o() || "ja"), "ja".includes(r) || (r = "ja"), document.body.lang = r, angular.lang = r, localStorage.setItem("lang", r), t.get("trans/" + r + ".json").then(function(t) { n.trans = t.data, a() }, a())
+                var r = localStorage.getItem("lang") || o();
+                console.log(r);
+                document.body.lang = r, angular.lang = r, localStorage.setItem("lang", r), t.get("trans/" + r + ".json").then(function(t) { n.trans = t.data, a() }, a())
             })(function() { n.t = function(t) { return n.trans ? n.trans[t] : t.replace(/_/g, " ") }, t.get("menu.json").then(function(t) { n.menu = t.data[angular.lang].m, n.lang = [], angular.forEach(t.data, function(t, e) { n.lang.push({ s: e, c: t.c }) }) }, null) });
             n.temp = function() {
                     return location.hash.replace(/#x\//, "md/" + angular.lang + "/") + ".md"

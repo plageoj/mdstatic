@@ -60,23 +60,5 @@
                     e[0].innerHTML = marked(e[0].innerHTML, { smartLists: true })
                 }
             }
-        })
-        .directive("mdToc", function() {
-            return {
-                restrict: "E",
-                template: '<p>Table of contents</p><ul><li class="md-1"><a onclick="zenscroll.toY(0)">Top</a></li><li ng-repeat="i in ct" class="md-{{i.lvl}}"><a ng-click="jump(i)" ng-bind="i.content"></a></li></ul>',
-                scope: {},
-                link: function(n, t, e) {
-                    n.ct = angular.fromJson(e.content);
-                    n.jump = function(n) {
-                        angular.forEach(document.getElementsByTagName("h" + n.lvl), function(t) {
-                            if (t.innerText === n.content) {
-                                t.getBoundingClientRect().top + window.pageXOffset;
-                                zenscroll.to(t);
-                            }
-                        });
-                    };
-                }
-            };
         });
 })()

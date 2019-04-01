@@ -22,7 +22,7 @@
         <h1><a href="#x/home" style="color:inherit">Your site name</a></h1>
         <nav>
             <ul id="menu">
-                <li ng-repeat="i in menu" style="width:{{100/menu.length}}%"><a href="#x/{{i.u}}">{{i.t}}</a></li>
+                <li ng-repeat="i in menu" ng-style="{width:100/menu.length+'%'}"><a href="#x/{{i.u}}">{{i.t}}</a></li>
             </ul>
         </nav>
     </header>
@@ -40,7 +40,6 @@
             <a href="//github.com/plageoj">plageoj</a>
         </p>
     </footer>
-    <script src="node_modules/zenscroll/zenscroll.js"></script>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 

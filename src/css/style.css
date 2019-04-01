@@ -317,7 +317,9 @@ span.float-right {
     display: block;
     margin-left: 13px;
     overflow: hidden;
-    float: right
+    float: right;
+    position: relative;
+    z-index: 1
 }
 
 span.float-right>span {
@@ -364,8 +366,7 @@ pre {
     border-radius: 3px
 }
 
-#menu,
-md-toc ul {
+#menu {
     padding: 0
 }
 
@@ -388,22 +389,13 @@ html {
 
 article {
     max-width: 60em;
+    min-width: 40em;
     padding: 1em 2em;
     background: #ddd
 }
 
 ng-view {
     display: block
-}
-
-md-toc {
-    position: fixed;
-    right: 2em;
-    top: 12em;
-    border: 1px solid #999;
-    padding: 0 1em 1em;
-    background: rgba(255, 255, 255, .7);
-    width: calc(100% - 66em)
 }
 
 a[target="_blank"]:after {
@@ -449,61 +441,12 @@ img[alt="C"] {
     border-right: dashed 1px #999
 }
 
-md-toc li {
-    margin: 0 .7em;
-    list-style-position: inside;
-    line-height: 2em
-}
-
-md-toc .md-1 {
-    padding-left: .5em
-}
-
-md-toc .md-2 {
-    padding-left: 1em
-}
-
-md-toc .md-3 {
-    padding-left: 1.5em;
-    list-style-type: square
-}
-
-md-toc .md-4 {
-    padding-left: 2em;
-    list-style-type: circle
-}
-
-md-toc .md-5 {
-    padding-left: 2.5em;
-    list-style-type: "> "
-}
-
-md-toc .md-6 {
-    padding-left: 3em;
-    list-style-type: "- "
-}
-
 @media all and (max-width:1100px) {
     body {
         padding-top: 0
     }
     article {
         width: calc(100% - 20em)
-    }
-    md-toc {
-        width: 19em;
-        top: 10em;
-        padding: .5em 0
-    }
-    md-toc p {
-        margin: .5em 0 .5em 1em
-    }
-    md-toc ul {
-        margin: 0;
-        padding: 0
-    }
-    md-toc li {
-        margin: 0
     }
 }
 
@@ -514,10 +457,8 @@ md-toc .md-6 {
     article {
         position: relative;
         width: calc(100% + 60px);
-        left: -26px
-    }
-    md-toc {
-        display: none;
+        left: -26px;
+        min-width: unset
     }
     #menu {
         margin-bottom: 1em;

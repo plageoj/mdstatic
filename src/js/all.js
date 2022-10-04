@@ -57,7 +57,9 @@
             return {
                 restrict: "A",
                 link: function(s, e) {
-                    e[0].innerHTML = marked(e[0].innerHTML, { smartLists: true })
+                    e[0].innerHTML = marked.marked(e[0].innerHTML, {
+                      smartLists: true,
+                    });
                 }
             }
         });
